@@ -37,12 +37,12 @@
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        ListNode *prev = NULL;
-        while (head != NULL) {
-            ListNode *tmp = head->next;
+        ListNode *prev = NULL, *next = NULL;
+        while(head) {
+            next = head->next;
             head->next = prev;
             prev = head;
-            head = tmp;
+            head = next;
         }
         return prev;
     }
