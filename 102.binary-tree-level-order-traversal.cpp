@@ -16,25 +16,25 @@ class Solution {
 public:
     vector<vector<int>> levelOrder(TreeNode* root) {
         vector<vector<int>> res;
-        if (root == NULL) return res;
+        if(root == NULL) return res;
         queue<TreeNode*> levelQueue;
         levelQueue.push(root);
         levelQueue.push(NULL);
         vector<int> levelVec;
 
         // Breadth-First Search
-        while (!levelQueue.empty()) {
+        while(!levelQueue.empty()) {
             TreeNode* head = levelQueue.front();
             levelQueue.pop();
-            if (head == NULL) {
+            if(head == NULL) {
                 res.push_back(levelVec);
                 levelVec.clear();
-                if (levelQueue.size() > 0) 
+                if(!levelQueue.empty()) 
                     levelQueue.push(NULL);
             } else {
                 levelVec.push_back(head->val);
-                if (head->left) levelQueue.push(head->left);
-                if (head->right) levelQueue.push(head->right);
+                if(head->left) levelQueue.push(head->left);
+                if(head->right) levelQueue.push(head->right);
             }
         }
 
