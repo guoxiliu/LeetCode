@@ -55,7 +55,7 @@ public:
     // x^2 + x + 1/4 = 2n + 1/4
     // (x+1/2)^2 = 2n + 1/4
     int arrangeCoins(int n) {
-        return floor(-0.5+sqrt((double)2*n+0.25));
+        return int(sqrt((double)2*n+0.25)-0.5);
     }
 };
 
