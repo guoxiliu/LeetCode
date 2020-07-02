@@ -15,6 +15,12 @@
 class Solution {
 public:
     vector<vector<int>> levelOrderBottom(TreeNode* root) {
+    /*
+        0. root
+		1. for each level, find its children, push to a queue
+		2. pop_front this level
+		3. reverse res order
+    */
         vector<vector<int>> res;
         if (root == NULL) return res;
         queue<TreeNode*> levelQueue;
