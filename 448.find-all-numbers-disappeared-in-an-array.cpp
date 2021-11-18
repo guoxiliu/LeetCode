@@ -31,6 +31,8 @@
  * 
  * 
  */
+/**
+ * 
 class Solution {
 public:
     vector<int> findDisappearedNumbers(vector<int>& nums) {
@@ -48,6 +50,28 @@ public:
         }
 
         return res;
+    }
+};
+*/
+
+class Solution {
+public:
+    vector<int> findDisappearedNumbers(vector<int>& nums) {
+        int n = nums.size();
+        for (int i = 0; i < nums.size(); i++) {
+            int cur = nums[i];
+            while (nums[cur-1] != cur) {
+                swap(cur, nums[cur-1]);
+            }
+        }
+        
+        vector<int> ans;
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] != i+1) {
+                ans.push_back(i+1);
+            }
+        }
+        return ans;
     }
 };
 
