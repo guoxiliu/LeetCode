@@ -40,20 +40,31 @@
  */
 
 // @lc code=start
+// class Solution {
+// public:
+//   int hammingDistance(int x, int y) {
+//     /**
+//      * The input is two integers, so there are 32 bits at most.
+//      * For each bit check if x and y are equal or not.
+//      */ 
+//     int mask = 1, count = 0;
+//     for(int i = 0; i < 32; i++){
+//       mask = 1 << i;
+//       if((mask&x) ^ (mask&y)) count++;
+//     }
+//     return count;
+//   }
+// };
+// @lc code=end
 class Solution {
 public:
-  int hammingDistance(int x, int y) {
-    /**
-     * The input is two integers, so there are 32 bits at most.
-     * For each bit check if x and y are equal or not.
-     */ 
-    int mask = 1, count = 0;
-    for(int i = 0; i < 32; i++){
-      mask = 1 << i;
-      if((mask&x) ^ (mask&y)) count++;
+    int hammingDistance(int x, int y) {
+        int ans = 0;
+        for (int i = 0; i < 32; i++) {
+            ans += ((x & 1) ^ (y & 1));
+            x >>= 1; y >>= 1;
+        }
+        
+        return ans;
     }
-    return count;
-  }
 };
-// @lc code=end
-
