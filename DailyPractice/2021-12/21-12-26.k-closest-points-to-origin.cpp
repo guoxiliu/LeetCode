@@ -1,4 +1,4 @@
-#include "leetcode.h"
+#include "../leetcode.h"
 
 class Solution {
     static int dist(vector<int> &vec) {
